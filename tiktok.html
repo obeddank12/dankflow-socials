@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#f8fafc] p-4 pb-20 no-scrollbar">
+    <div class="max-w-4xl mx-auto space-y-6 animate-fadeIn">
+        
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 uppercase italic text-slate-800">
+                📈 TikTok Followers
+                <span class="text-[10px] bg-cyan-100 text-cyan-600 px-2 py-0.5 rounded-full uppercase font-black tracking-widest">Worldwide</span>
+            </h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">1. Select Package</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-1">
+                        <button onclick="setFollowerPackage('1k Followers', 50, this)" class="config-btn active-config p-3 rounded-xl border text-xs">1k • GHS 50</button>
+                        <button onclick="setFollowerPackage('2k Followers', 95, this)" class="config-btn p-3 rounded-xl border text-xs">2k • GHS 95</button>
+                        <button onclick="setFollowerPackage('5k Followers', 230, this)" class="config-btn p-3 rounded-xl border text-xs">5k • GHS 230</button>
+                        <button onclick="setFollowerPackage('10k Followers', 450, this)" class="config-btn p-3 rounded-xl border text-xs">10k • GHS 450</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">2. TikTok Username/Link</label>
+                    <input type="text" id="follower-link" placeholder="@username or profile link" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-pink-500 transition">
+                </div>
+
+                <button onclick="addFollowersDirect('TikTok')" class="w-full bg-[#ff0050] text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:opacity-90 transition active:scale-95">
+                    Add Followers to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-1 italic text-slate-800">❤️ TikTok Likes Configurator</h2>
+            <p class="text-cyan-600 text-[10px] mb-4 font-bold uppercase tracking-widest">Bonus Views Included!</p>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">1. Select Package</label>
+                    <div class="grid grid-cols-2 gap-2 mt-1">
+                        <button onclick="setConfig('TikTok', '1k Likes', 'tk-likes')" class="config-btn active-config p-3 rounded-xl border">1k Pack (+10k views)</button>
+                        <button onclick="setConfig('TikTok', '5k Likes', 'tk-likes')" class="config-btn p-3 rounded-xl border">5k Pack (+50k views)</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">2. Post Count (1-5)</label>
+                    <input type="number" id="tk-likes-count" min="1" max="5" value="1" oninput="updatePrice('TikTok', 'tk-likes')" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-pink-500 transition">
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl flex justify-between items-center border border-slate-100">
+                    <span class="text-slate-500 text-sm font-bold uppercase">Total Price:</span>
+                    <span class="text-2xl font-black text-green-600" id="tk-likes-price">GHS 20</span>
+                </div>
+                <div id="tk-likes-links" class="space-y-2"></div>
+                <button onclick="validateAndAdd('TikTok', 'tk-likes')" class="w-full bg-slate-800 text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:bg-slate-700 transition active:scale-95">Add Likes to Cart</button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div class="service-card p-6 rounded-3xl">
+                <h2 class="text-lg font-bold mb-4 italic uppercase text-slate-800">🚀 TikTok Shares (1k)</h2>
+                <div class="space-y-4">
+                    <input type="number" id="tk-shares-count" min="1" max="5" value="1" oninput="updatePrice('TikTok', 'tk-shares')" 
+                        class="w-full bg-white border border-slate-200 rounded-xl p-3 text-sm outline-none focus:border-cyan-500">
+                    <div id="tk-shares-links" class="space-y-2 mb-4"></div>
+                    <button onclick="validateAndAdd('TikTok', 'tk-shares')" class="w-full bg-slate-100 text-slate-800 py-3 rounded-xl font-bold text-xs uppercase border border-slate-200" id="tk-shares-price">Add • GHS 5</button>
+                </div>
+            </div>
+            <div class="service-card p-6 rounded-3xl">
+                <h2 class="text-lg font-bold mb-4 italic uppercase text-slate-800">👀 TikTok Views (20k)</h2>
+                <div class="space-y-4">
+                    <input type="number" id="tk-views-count" min="1" max="5" value="1" oninput="updatePrice('TikTok', 'tk-views')" 
+                        class="w-full bg-white border border-slate-200 rounded-xl p-3 text-sm outline-none focus:border-cyan-500">
+                    <div id="tk-views-links" class="space-y-2 mb-4"></div>
+                    <button onclick="validateAndAdd('TikTok', 'tk-views')" class="w-full bg-slate-100 text-slate-800 py-3 rounded-xl font-bold text-xs uppercase border border-slate-200" id="tk-views-price">Add • GHS 7</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = () => {
+            updatePrice('TikTok', 'tk-likes');
+            updatePrice('TikTok', 'tk-shares');
+            updatePrice('TikTok', 'tk-views');
+        };
+    </script>
+</body>
+</html>

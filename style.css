@@ -1,0 +1,148 @@
+/* style.css - DankFlow Socials Professional Light Theme */
+
+/* 1. Global Reset & Theme Base */
+body {
+    background-color: #f8fafc; /* Crisp Light Gray/White */
+    color: #0f172a; /* Deep Slate for maximum readability */
+    margin: 0;
+    padding: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Hide scrollbars for a clean app feel */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* 2. Animations */
+@keyframes fadeIn { 
+    from { opacity: 0; transform: translateY(8px); } 
+    to { opacity: 1; transform: translateY(0); } 
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.4s ease-out;
+}
+
+/* 3. Navigation & Tab Styling */
+nav {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.nav-btn {
+    transition: all 0.3s ease;
+    color: #64748b;
+}
+
+.active-tab { 
+    border-bottom: 4px solid #ff0050 !important; /* TikTok Pink Branding */
+    color: #0f172a !important;
+    font-weight: 800;
+}
+
+/* 4. Service Card Styling */
+.service-card { 
+    background: #ffffff; 
+    border: 1px solid #e2e8f0; 
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    border-color: #cbd5e1;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+}
+
+/* 5. Button Styling */
+/* Main Add to Cart / Price Buttons */
+.price-btn { 
+    background: #f1f5f9; 
+    border: 1px solid #e2e8f0;
+    color: #1e293b;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.price-btn:hover { 
+    background: #e2e8f0; 
+    border-color: #cbd5e1; 
+    transform: translateY(-2px); 
+}
+
+.price-btn:active {
+    transform: scale(0.96);
+}
+
+/* Configurator Pack Buttons (1k, 5k selection) */
+.config-btn { 
+    transition: all 0.2s ease; 
+    background: #ffffff;
+    border: 1px solid #e2e8f0; 
+    color: #64748b; 
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 0.025em;
+}
+
+.config-btn.active-config { 
+    border-color: #00f2ea; 
+    background: #f0fdfa; /* Very light cyan tint */
+    color: #0d9488; 
+    box-shadow: 0 0 10px rgba(0, 242, 234, 0.1);
+}
+
+/* 6. Form Inputs & Textareas */
+input, select, textarea {
+    background: #ffffff !important;
+    border: 1px solid #cbd5e1 !important;
+    color: #0f172a !important;
+    transition: all 0.2s ease;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #ff0050 !important; /* Pink focus ring */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 0, 80, 0.1);
+}
+
+/* Placeholder text color */
+::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+}
+
+/* 7. Cart Modal Styling (Specific to index.html) */
+#cartModal > div {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.cart-item {
+    background-color: #f8fafc;
+    border: 1px solid #f1f5f9;
+}
+
+/* Custom Scrollbar for Cart */
+.custom-scroll::-webkit-scrollbar { 
+    width: 6px; 
+}
+
+.custom-scroll::-webkit-scrollbar-track { 
+    background: #f1f5f9; 
+}
+
+.custom-scroll::-webkit-scrollbar-thumb { 
+    background: #cbd5e1; 
+    border-radius: 10px; 
+}
+
+.custom-scroll::-webkit-scrollbar-thumb:hover { 
+    background: #94a3b8; 
+}
+
+/* 8. Utilities */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

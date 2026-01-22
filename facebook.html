@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#f8fafc] p-4 pb-20 no-scrollbar">
+    <div class="max-w-4xl mx-auto space-y-6 animate-fadeIn">
+        
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 flex items-center gap-2 uppercase italic text-slate-800">
+                👥 Facebook Followers
+                <span class="text-[10px] bg-blue-100 text-blue-600 px-2 py-0.5 rounded-full uppercase font-black tracking-widest">No Drop</span>
+            </h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">1. Select Package</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-1">
+                        <button onclick="setFollowerPackage('1k Followers', 50, this)" class="config-btn active-config p-3 rounded-xl border text-xs">1k • GHS 50</button>
+                        <button onclick="setFollowerPackage('2k Followers', 95, this)" class="config-btn p-3 rounded-xl border text-xs">2k • GHS 95</button>
+                        <button onclick="setFollowerPackage('5k Followers', 230, this)" class="config-btn p-3 rounded-xl border text-xs">5k • GHS 230</button>
+                        <button onclick="setFollowerPackage('10k Followers', 450, this)" class="config-btn p-3 rounded-xl border text-xs">10k • GHS 450</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">2. Facebook Profile/Page Link</label>
+                    <input type="text" id="follower-link" placeholder="Paste your Facebook link here" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-blue-500 transition">
+                </div>
+
+                <button onclick="addFollowersDirect('Facebook')" class="w-full bg-[#1877F2] text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:opacity-90 transition active:scale-95">
+                    Add Followers to Cart
+                </button>
+            </div>
+        </div>
+
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 text-blue-600 italic uppercase tracking-tighter">👍 Post Likes Configurator (1k)</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">Number of Posts (1-5)</label>
+                    <input type="number" id="fb-likes-count" min="1" max="5" value="1" oninput="updatePrice('Facebook', 'fb-likes')" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-blue-500 transition">
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl flex justify-between items-center border border-slate-100">
+                    <span class="text-slate-500 text-sm font-bold uppercase">Total Price:</span>
+                    <span class="text-2xl font-black text-blue-600" id="fb-likes-price">GHS 10</span>
+                </div>
+                <div id="fb-likes-links" class="space-y-2"></div>
+                <button onclick="validateAndAdd('Facebook', 'fb-likes')" class="w-full bg-slate-800 text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:bg-slate-700 transition active:scale-95">Add Likes to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 text-blue-600 italic uppercase tracking-tighter">📺 Video Views Configurator (1k)</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">Number of Videos (1-5)</label>
+                    <input type="number" id="fb-views-count" min="1" max="5" value="1" oninput="updatePrice('Facebook', 'fb-views')" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-blue-500 transition">
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl flex justify-between items-center border border-slate-100">
+                    <span class="text-slate-500 text-sm font-bold uppercase">Total Price:</span>
+                    <span class="text-2xl font-black text-blue-600" id="fb-views-price">GHS 7</span>
+                </div>
+                <div id="fb-views-links" class="space-y-2"></div>
+                <button onclick="validateAndAdd('Facebook', 'fb-views')" class="w-full bg-slate-800 text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:bg-slate-700 transition active:scale-95">Add Views to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 text-blue-600 italic uppercase tracking-tighter">🚀 Post Shares Configurator (1k)</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">Number of Posts (1-5)</label>
+                    <input type="number" id="fb-shares-count" min="1" max="5" value="1" oninput="updatePrice('Facebook', 'fb-shares')" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-blue-500 transition">
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl flex justify-between items-center border border-slate-100">
+                    <span class="text-slate-500 text-sm font-bold uppercase">Total Price:</span>
+                    <span class="text-2xl font-black text-blue-600" id="fb-shares-price">GHS 20</span>
+                </div>
+                <div id="fb-shares-links" class="space-y-2"></div>
+                <button onclick="validateAndAdd('Facebook', 'fb-shares')" class="w-full bg-slate-800 text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:bg-slate-700 transition active:scale-95">Add Shares to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = () => {
+            updatePrice('Facebook', 'fb-likes');
+            updatePrice('Facebook', 'fb-views');
+            updatePrice('Facebook', 'fb-shares');
+        };
+    </script>
+</body>
+</html>

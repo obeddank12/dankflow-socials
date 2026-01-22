@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#f8fafc] p-4 pb-20 no-scrollbar">
+    <div class="max-w-4xl mx-auto animate-fadeIn">
+        
+        <div class="service-card p-6 rounded-3xl border-2 border-pink-500/20">
+            <h2 class="text-2xl font-black mb-2 text-pink-600 italic uppercase">Mass Order Request</h2>
+            <p class="text-[10px] text-slate-500 mb-6 font-bold uppercase tracking-widest">For orders over 100k+ • Custom Discounts available</p>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">Platform</label>
+                    <select id="mass-platform" class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-pink-500 text-slate-800 appearance-none">
+                        <option value="TikTok">TikTok</option>
+                        <option value="Facebook">Facebook</option>
+                        <option value="Instagram">Instagram</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">Service Type</label>
+                    <input type="text" id="mass-service" placeholder="e.g. Worldwide Followers" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-pink-500 text-slate-800">
+                </div>
+
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">Target Quantity</label>
+                    <input type="number" id="mass-quantity" placeholder="e.g. 500000" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-pink-500 text-slate-800">
+                </div>
+
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">Links (One per line)</label>
+                    <textarea id="mass-links" placeholder="Paste all target links here..." 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none h-32 focus:border-pink-500 text-slate-800 custom-scroll"></textarea>
+                </div>
+
+                <button onclick="sendMassOrder()" class="w-full bg-gradient-to-r from-pink-600 to-purple-600 text-white py-4 rounded-2xl font-black shadow-xl uppercase tracking-tighter hover:opacity-90 transition active:scale-95">
+                    Request Custom Quote on WhatsApp
+                </button>
+            </div>
+            
+            <div class="mt-6 p-4 bg-slate-50 rounded-2xl border border-slate-100">
+                <p class="text-[9px] text-slate-500 text-center uppercase font-bold tracking-widest">
+                    Note: Mass orders are manually processed to ensure maximum discount and stability.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

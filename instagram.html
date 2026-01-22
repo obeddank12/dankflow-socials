@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-[#f8fafc] p-4 pb-20 no-scrollbar">
+    <div class="max-w-4xl mx-auto space-y-6 animate-fadeIn">
+        
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 text-purple-600 uppercase italic flex items-center gap-2">
+                📸 Instagram Followers
+                <span class="text-[10px] bg-purple-100 text-purple-600 px-2 py-0.5 rounded-full uppercase font-black tracking-widest">Worldwide</span>
+            </h2>
+            
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">1. Select Package</label>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mt-1">
+                        <button onclick="setFollowerPackage('1k Followers', 65, this)" class="config-btn active-config p-3 rounded-xl border text-xs">1k • GHS 65</button>
+                        <button onclick="setFollowerPackage('2k Followers', 125, this)" class="config-btn p-3 rounded-xl border text-xs">2k • GHS 125</button>
+                        <button onclick="setFollowerPackage('5k Followers', 305, this)" class="config-btn p-3 rounded-xl border text-xs">5k • GHS 305</button>
+                        <button onclick="setFollowerPackage('10k Followers', 625, this)" class="config-btn p-3 rounded-xl border text-xs">10k • GHS 625</button>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">2. Instagram Username/Link</label>
+                    <input type="text" id="follower-link" placeholder="@username or profile link" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-purple-500 transition">
+                </div>
+
+                <button onclick="addFollowersDirect('Instagram')" class="w-full bg-gradient-to-r from-purple-600 to-pink-500 text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:opacity-90 transition active:scale-95">
+                    Add Followers to Cart
+                </button>
+            </div>
+            <p class="mt-4 text-[9px] text-slate-400 italic uppercase font-black tracking-widest text-center">No Drop Guarantee • Real Profiles</p>
+        </div>
+
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 text-purple-600 italic uppercase tracking-tighter">💖 Post Likes Configurator</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">1. Select Package</label>
+                    <div class="grid grid-cols-3 gap-2 mt-1">
+                        <button onclick="setConfig('Instagram', '1k Likes', 'ig-likes')" class="config-btn active-config p-2 rounded-lg border text-[10px] font-black uppercase">1k Pack</button>
+                        <button onclick="setConfig('Instagram', '2k Likes', 'ig-likes')" class="config-btn p-2 rounded-lg border border-slate-200 text-[10px] font-black uppercase">2k Pack</button>
+                        <button onclick="setConfig('Instagram', '5k Likes', 'ig-likes')" class="config-btn p-2 rounded-lg border border-slate-200 text-[10px] font-black uppercase">5k Pack</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">2. Number of Posts (1-5)</label>
+                    <input type="number" id="ig-likes-count" min="1" max="5" value="1" oninput="updatePrice('Instagram', 'ig-likes')" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-purple-500 transition">
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl flex justify-between items-center border border-slate-100">
+                    <span class="text-slate-500 text-sm font-bold uppercase">Total Price:</span>
+                    <span class="text-2xl font-black text-purple-600" id="ig-likes-price">GHS 10</span>
+                </div>
+                <div id="ig-likes-links" class="space-y-2"></div>
+                <button onclick="validateAndAdd('Instagram', 'ig-likes')" class="w-full bg-slate-800 text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:bg-slate-700 transition active:scale-95">Add Likes to Cart</button>
+            </div>
+        </div>
+
+        <div class="service-card p-6 rounded-3xl">
+            <h2 class="text-xl font-bold mb-4 text-purple-600 italic uppercase tracking-tighter">🎬 Video Views Configurator</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">1. Select Package</label>
+                    <div class="grid grid-cols-3 gap-2 mt-2">
+                        <button onclick="setConfig('Instagram', '1k Views', 'ig-views')" class="config-btn active-config p-2 rounded-lg border text-[10px] font-black uppercase">1k Pack</button>
+                        <button onclick="setConfig('Instagram', '2k Views', 'ig-views')" class="config-btn p-2 rounded-lg border border-slate-200 text-[10px] font-black uppercase">2k Pack</button>
+                        <button onclick="setConfig('Instagram', '5k Views', 'ig-views')" class="config-btn p-2 rounded-lg border border-slate-200 text-[10px] font-black uppercase">5k Pack</button>
+                    </div>
+                </div>
+                <div>
+                    <label class="text-[10px] text-slate-500 uppercase font-black ml-1">2. Number of Videos (1-5)</label>
+                    <input type="number" id="ig-views-count" min="1" max="5" value="1" oninput="updatePrice('Instagram', 'ig-views')" 
+                        class="w-full mt-1 bg-white border border-slate-200 rounded-xl p-4 outline-none focus:border-purple-500 transition">
+                </div>
+                <div class="p-4 bg-slate-50 rounded-2xl flex justify-between items-center border border-slate-100">
+                    <span class="text-slate-500 text-sm font-bold uppercase">Total Price:</span>
+                    <span class="text-2xl font-black text-purple-600" id="ig-views-price">GHS 5</span>
+                </div>
+                <div id="ig-views-links" class="space-y-2"></div>
+                <button onclick="validateAndAdd('Instagram', 'ig-views')" class="w-full bg-slate-800 text-white py-4 rounded-2xl font-black shadow-lg uppercase tracking-widest hover:bg-slate-700 transition active:scale-95">Add Views to Cart</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        window.onload = () => {
+            updatePrice('Instagram', 'ig-likes'); // Starting GHS 10
+            updatePrice('Instagram', 'ig-views'); // Starting GHS 5
+        };
+    </script>
+</body>
+</html>
