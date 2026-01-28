@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
+    <meta name="google-site-verification" content="xxKeqGI6J0MmTwlyui7ef-8XSuizK64KU-gk9KJUmGE" />
+
     <title>DankFlow Socials | Premium Growth</title>
     <meta name="description" content="Boost your presence with DankFlow Socials. Premium TikTok, Facebook, and Instagram followers, likes, and views. Fast delivery and real results.">
     <meta name="keywords" content="TikTok followers Ghana, Instagram growth, Facebook likes, social media marketing, DankFlow">
@@ -69,8 +71,8 @@
 
     <script src="script.js"></script>
     <script>
-        /** * LISTEN FOR MESSAGES
-         * This receives orders from tiktok.html, facebook.html, etc.
+        /** * CROSS-FRAME MESSAGE LISTENER
+         * Listens for orders sent from the sub-pages (iFrame)
          */
         window.addEventListener('message', function(event) {
             if (event.data.type === 'ADD_TO_CART') {
@@ -81,6 +83,7 @@
         });
 
         /** * TAB NAVIGATION
+         * Switches the iFrame source and updates button styling
          */
         function loadTab(url, btn) {
             document.getElementById('contentFrame').src = url;
